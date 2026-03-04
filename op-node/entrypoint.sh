@@ -79,7 +79,7 @@ case $_DAPPNODE_GLOBAL_OP_EXECUTION_CLIENT in
 esac
 
 while true; do
-  op-node --network=op-mainnet \
+  op-node --network=base-mainnet \
     --l1="$L1_RPC" \
     --l1.beacon="$L1_BEACON_API" \
     --l2="$L2_ENGINE" \
