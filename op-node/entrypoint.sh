@@ -64,15 +64,15 @@ fi
 
 case $_DAPPNODE_GLOBAL_OP_EXECUTION_CLIENT in
 "op-geth.dnp.dappnode.eth")
-  L2_ENGINE="http://op-geth.dappnode:8551"
+  L2_ENGINE="ws://op-geth.dappnode:8551"
   JWT_PATH="/security/op-geth/jwtsecret.hex"
   ;;
 "base-op-geth.public.dappnode.eth")
-  L2_ENGINE="http://base-op-geth.public.dappnode:8551/"
+  L2_ENGINE="ws://base-op-geth.public.dappnode:8551"
   JWT_PATH="/config/jwtsecret.hex"
   ;;
 "op-erigon.dnp.dappnode.eth")
-  L2_ENGINE="http://op-erigon.dappnode:8551"
+  L2_ENGINE="ws://op-erigon.dappnode:8551"
   JWT_PATH="/security/op-erigon/jwtsecret.hex"
   ;;
 *)
@@ -87,6 +87,8 @@ while true; do
     --l1="$L1_RPC" \
     --l1.beacon="$L1_BEACON_API" \
     --l2="$L2_ENGINE" \
+    --p2p.listen.tcp=9222 \
+    --p2p.listen.udp=9222 \
     --l2.jwt-secret="$JWT_PATH" \
     --rpc.addr=0.0.0.0 \
     --rpc.port=9545 \
